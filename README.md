@@ -1,2 +1,0 @@
-# CRUDJS
-Hello mannu
