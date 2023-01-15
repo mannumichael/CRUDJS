@@ -27,7 +27,31 @@ router.post('/',async(req,res)=>{
     }
 })
 
+router.patch('/:id', async (req, res) => {
+    try {
+        const data = await Customer.findById(req.params.id);
 
+        if (!data) {
+            return res.send({ message: "Customer not found" });
+        }
+
+        if (req.body.name) {
+            data.name = req.body.name;
+        }
+
+        if (req.body.city) {
+            data.city = req.body.city;
+        }
+
+        if (req.body.postalcode) {
+            data.postalcode = req.body.postalcode;
+        }
+        await data.save();
+        res.json(data);
+    } catch (err) {
+        res.send({ message: "Error updating customer" });
+    }
+});
 
 
 
