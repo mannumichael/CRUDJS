@@ -53,6 +53,21 @@ router.patch('/:id', async (req, res) => {
     }
 });
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const data = await Customer.findByIdAndRemove(req.params.id);
+
+        if (!data) {
+            return res.send({ message: "Customer not found" });
+        }
+
+        res.json({ message: "Customer deleted successfully" });
+    } catch (err) {
+        res.send({ message: "Error deleting customer" });
+    }
+});
+
+
 
 
 
