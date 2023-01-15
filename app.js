@@ -5,6 +5,7 @@ const app = express() ;
 dotenv.config() ;
 const port = 9000 ;
 const customerRoutes = require('./routes/customers.js');
+app.use(express.json());
 
 //connecting the mongoDB to nodejs via Connection string 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING,{

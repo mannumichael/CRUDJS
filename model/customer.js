@@ -11,19 +11,19 @@ var datetime = currentdate.getDate() + "/"
 
 const customerSchema = new mongoose.Schema({
     name: {
-        type : string,
+        type : String,
         required: true
     },
     city: {
-        type: string,
+        type: String,
         required: true
     },
     postalcode: {
-        type : string,
+        type : String,
         required: true
     },
     date: {
-        type: string,
+        type: String,
         required: true,
         default : datetime 
     }

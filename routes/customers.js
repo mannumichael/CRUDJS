@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router() ;
+const Customer = require('../model/customer.js')
 
-
-router.get('/',(req,res)=>{
+router.get('/',async(req,res)=>{
     // res.send("GET REQUEST")
-    const customers = Customer.find() ;
+    
     try{
-        res.send(customers) ;
+        const customers =  await Customer.find() ;
+        res.json(customers)
     }catch(err){
         res.send(err) ;
     }
