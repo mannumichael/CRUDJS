@@ -14,8 +14,7 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING,{
 
 //DB handler
 const db = mongoose.connection ;
-
-app.use('/customers',customerRoutes) ;
+app.use('/customers',customerRoutes);
 
 db.once('open',()=>{
   console.log("Connected to MongoDB") ;

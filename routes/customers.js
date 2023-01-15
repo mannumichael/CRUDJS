@@ -13,6 +13,20 @@ router.get('/',async(req,res)=>{
     }
 })
 
+router.post('/',async(req,res)=>{
+    const customer = new Customer({
+        name: req.body.name,
+        city: req.body.city,
+        postalcode: req.body.postalcode
+    })
+    try{
+        const data =  await customer.save() ;
+        res.json(data)
+    }catch(err){
+        res.send(err) ;
+    }
+})
+
 
 
 

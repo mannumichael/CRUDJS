@@ -27,6 +27,8 @@ const customerSchema = new mongoose.Schema({
         required: true,
         default : datetime 
     }
+},{
+    versionKey: false
 })
 
 module.exports = mongoose.model('customers',customerSchema)
