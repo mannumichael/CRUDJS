@@ -1,0 +1,25 @@
+{
+  "name": "crudjs",
+  "version": "1.0.0",
+  "description": "hello",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mannumichael/CRUDJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mannumichael/CRUDJS/issues"
+  },
+  "homepage": "https://github.com/mannumichael/CRUDJS#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.8.3",
+    "nodemon": "^2.0.20"
+  }
+}
