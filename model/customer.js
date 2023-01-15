@@ -28,4 +28,5 @@ const customerSchema = new mongoose.Schema({
         default : datetime 
     }
 })
-module.exports = customerSchema
+
+module.exports = mongoose.model('customers',customerSchema)
