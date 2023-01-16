@@ -2,16 +2,30 @@ const express = require('express');
 const router = express.Router() ;
 const Customer = require('../model/customer.js')
 
-router.get('/',async(req,res)=>{
-    // res.send("GET REQUEST")
+// router.get('/',async(req,res)=>{
+//     // res.send("GET REQUEST")
     
+//     try{
+//         const customers =  await Customer.find() ;
+//         res.json(customers)
+//     }catch(err){
+//         res.send(err) ;
+//     }
+// })
+
+router.get('/', async(req, res) => {
+    const query = req.query;
+    const conditions = {};
+    if(query.name) conditions.name = query.name;
+    if(query.city) conditions.city = query.city;
+    if(query.postalcode) conditions.postalcode = query.postalcode;
+    const customers = await Customer.find(conditions);
     try{
-        const customers =  await Customer.find() ;
         res.json(customers)
     }catch(err){
-        res.send(err) ;
+        res.send(err)
     }
-})
+});
 
 router.post('/',async(req,res)=>{
     const customer = new Customer({
