@@ -6,11 +6,16 @@ const getCustomers = async (req, res) => {
     if(query.name) conditions.name = query.name;
     if(query.city) conditions.city = query.city;
     if(query.postalcode) conditions.postalcode = query.postalcode;
-    const customers = await Customer.find(conditions);
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+    const customers = await Customer.find(conditions).skip(skip).limit(limit);
     try{
-        res.json(customers);
+        const total = await Customer.countDocuments(conditions);
+        const totalPages = Math.ceil(total / limit);
+        res.json({customers, totalPages});
     }catch(err){
-        res.send(err);
+        res.send(err)
     }
 };
 
