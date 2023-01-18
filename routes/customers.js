@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {getCustomers,createCustomer,updateCustomer,deleteCustomer} = require('../Controllers/controller');
+const {getCustomers,createCustomer,updateCustomer,deleteCustomer} = require('../Controllers/controllersMongo');
 
 router.get('/', getCustomers);
 router.post('/', createCustomer);
